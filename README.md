@@ -1,2 +1,2 @@
 # HA-smart-home
-This repository displays my progression as a whole within making a smart home trough Home Assistant (HA).
+This repository contains my Home Assistant setup and relevant repositories related to this, such as smart-air-sensor. It focuses exclusively on the Home Assistant configuration and integration with custom components for my smart home.
