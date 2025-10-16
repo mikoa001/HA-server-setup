@@ -1,4 +1,4 @@
-# Home Assistant Smart Home Server
+# Home Assistant Server Setup
 
 This repository contains my Home Assistant setup running on a Raspberry Pi 5 with detailed documentation, configuration examples, and hardware design files.
 
@@ -22,22 +22,9 @@ This repository contains my Home Assistant setup running on a Raspberry Pi 5 wit
 - **USB Extension**: For optimal Zigbee signal (reduces interference from Pi)
 - **Enclosure**: Custom 3D-printed case (design included in `pictures/`)
 
-## 📁 Repository Structure
+##  Related Projects
 
-```
-.
-├── README.md                 # This file
-├── pictures/                 # Hardware photos and case designs
-├── config/                   # Home Assistant configuration files
-│   ├── configuration.yaml    # Main HA configuration
-│   ├── automations.yaml      # Automation rules
-│   ├── scripts.yaml          # Custom scripts
-│   └── scenes.yaml           # Scene definitions
-├── integrations/             # Integration-specific configs
-│   └── zigbee2mqtt/          # Zigbee device configurations
-├── dashboards/               # Lovelace dashboard configs
-└── docs/                     # Additional documentation
-```
+- [smart-air-quality-sensor](https://github.com/mikoa001/smart-air-quality-sensor)
 
 ## 🚀 Getting Started
 
