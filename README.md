@@ -45,11 +45,13 @@ See the [Getting Started Guide](docs/getting-started.md) for detailed setup inst
 
 ## 📚 Documentation
 
-- [Hardware Setup Guide](docs/hardware-setup.md)
-- [Configuration Guide](docs/configuration.md)
-- [Automation Examples](docs/automation-examples.md)
-- [Zigbee Device Integration](docs/zigbee-devices.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Getting Started Guide](docs/getting-started.md) - Step-by-step installation
+- [Hardware Setup Guide](docs/hardware-setup.md) - Detailed hardware documentation
+- [Configuration Guide](docs/configuration.md) - YAML configuration best practices
+- [Automation Examples](docs/automation-examples.md) - Extensive automation library
+- [Zigbee Device Integration](docs/zigbee-devices.md) - Zigbee setup and device pairing
+- [Complete Example](docs/complete-example.md) - Full day automation scenario
+- [Troubleshooting](docs/troubleshooting.md) - Common issues and solutions
 
 ## 🤝 Contributing
 
