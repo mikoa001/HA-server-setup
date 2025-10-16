@@ -7,7 +7,7 @@ A rough overveiw of the hardware setup for my Home Assistant server.
 *I made a custom 3D-printed case for an Raspberry Pi 5 + 2.5" SATA SSD*
 
 ### Server Setup
-![Hardware Setup](../pictures/image.jpg)
+![Hardware Setup](../pictures/image.png)
 *Raspberry Pi 5 with SSD and Zigbee dongle mounted on wall*
 
 ### Main Components
