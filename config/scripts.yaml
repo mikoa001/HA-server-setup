@@ -1,0 +1,115 @@
+# Example Scripts
+# This file contains example scripts for Home Assistant
+# Scripts are sequences of actions that can be triggered manually or from automations
+
+# Movie mode script
+movie_mode:
+  alias: Movie Mode
+  description: Dim lights and close blinds for movie watching
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: light.living_room
+      data:
+        brightness_pct: 20
+        rgb_color: [255, 147, 41]
+    - service: cover.close_cover
+      target:
+        entity_id: cover.living_room_blinds
+    - service: switch.turn_on
+      target:
+        entity_id: switch.tv
+
+# Morning routine script
+morning_routine:
+  alias: Morning Routine
+  description: Gradually wake up with lights and open blinds
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: light.bedroom
+      data:
+        brightness_pct: 1
+    - repeat:
+        count: 20
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.bedroom
+            data:
+              brightness_step_pct: 5
+          - delay:
+              seconds: 30
+    - service: cover.open_cover
+      target:
+        entity_id: cover.bedroom_blinds
+    - service: tts.google_translate_say
+      data:
+        entity_id: media_player.bedroom_speaker
+        message: "Good morning! It's time to wake up."
+
+# Away mode script
+away_mode:
+  alias: Away Mode
+  description: Simulate presence when away
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id: all
+    - service: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.home_alarm
+    - repeat:
+        while:
+          - condition: state
+            entity_id: input_boolean.away_mode
+            state: 'on'
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.random_light
+            data:
+              brightness_pct: 70
+          - delay:
+              minutes: 30
+          - service: light.turn_off
+            target:
+              entity_id: light.random_light
+          - delay:
+              minutes: 15
+
+# Panic mode script
+panic_mode:
+  alias: Panic Mode
+  description: Turn on all lights and send alert
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: all
+      data:
+        brightness_pct: 100
+    - service: notify.mobile_app
+      data:
+        title: "ALERT: Panic Mode Activated"
+        message: "All lights turned on. Emergency services may be needed."
+        data:
+          priority: high
+          ttl: 0
+
+# Bedtime script
+bedtime:
+  alias: Bedtime
+  description: Turn off lights, close covers, check locks
+  sequence:
+    - service: light.turn_off
+      target:
+        entity_id: all
+    - service: cover.close_cover
+      target:
+        entity_id: all
+    - service: lock.lock
+      target:
+        entity_id: all
+    - service: notify.mobile_app
+      data:
+        message: "Good night! All systems secured."

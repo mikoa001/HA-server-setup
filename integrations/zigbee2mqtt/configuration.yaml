@@ -1,0 +1,75 @@
+# Zigbee2MQTT Configuration Example
+# This configuration file is used by Zigbee2MQTT to manage Zigbee devices
+# Place this file in your Zigbee2MQTT data directory
+
+homeassistant: true
+
+permit_join: false
+
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://localhost:1883
+  user: homeassistant
+  password: your_mqtt_password
+
+serial:
+  # Sonoff Zigbee 3.0 USB Dongle Plus
+  port: /dev/ttyUSB0
+  adapter: ezsp
+
+# Network settings
+advanced:
+  network_key: GENERATE
+  pan_id: GENERATE
+  channel: 11
+  # Use USB extension cable to reduce interference
+  transmit_power: 20
+  
+  # Optimize for Raspberry Pi 5
+  baudrate: 115200
+  rtscts: false
+  
+  log_level: info
+  log_directory: /opt/zigbee2mqtt/data/log/%TIMESTAMP%
+  log_file: log.txt
+  
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+
+# Frontend settings
+frontend:
+  port: 8080
+  host: 0.0.0.0
+
+# Device availability check
+availability:
+  active:
+    timeout: 10
+  passive:
+    timeout: 1500
+
+# OTA updates
+ota:
+  update_check_interval: 1440
+  disable_automatic_update_check: false
+
+# Example device configuration
+devices:
+  '0x00158d0001a2b3c4':
+    friendly_name: 'living_room_motion'
+    retain: true
+  '0x00158d0001a2b3c5':
+    friendly_name: 'bedroom_temperature'
+    retain: true
+  '0x00158d0001a2b3c6':
+    friendly_name: 'front_door_sensor'
+    retain: true
+
+# Groups example
+groups:
+  '1':
+    friendly_name: living_room_lights
+    devices:
+      - 0x00158d0001a2b3c7
+      - 0x00158d0001a2b3c8

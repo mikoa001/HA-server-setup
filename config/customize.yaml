@@ -1,0 +1,31 @@
+# Entity Customization Examples
+# This file allows you to override the default properties of entities
+
+# Customize device names and icons
+light.living_room_ceiling:
+  friendly_name: "Living Room Main Light"
+  icon: mdi:ceiling-light
+
+sensor.motion_sensor_hallway:
+  friendly_name: "Hallway Motion"
+  icon: mdi:motion-sensor
+
+binary_sensor.front_door:
+  friendly_name: "Front Door"
+  icon: mdi:door
+  device_class: door
+
+# Hide entities from UI
+automation.system_backup:
+  hidden: true
+
+# Custom temperature sensor
+sensor.living_room_temperature:
+  friendly_name: "Living Room Temperature"
+  unit_of_measurement: "°C"
+  device_class: temperature
+
+# Customize switch to appear as light
+switch.bedroom_lamp:
+  device_class: outlet
+  icon: mdi:lamp
