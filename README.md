@@ -1,36 +1,12 @@
 # Home Assistant Server Setup
 
-This repository contains my Home Assistant setup running on a Raspberry Pi 5 with detailed documentation, configuration examples, and hardware design files.
+This repository contains a rough overveiw of my Home Assistant setup along with an introduction to Home Assistant and future ideas.
 
-## 📸 Hardware Setup
-
-### Production Setup
-![Hardware Setup](pictures/IMG20250821145410.jpg)
-*Raspberry Pi 5 with SSD and Zigbee dongle mounted on wall*
-
-### 3D Case Design
-![Case Design](pictures/Pi5+2.5_SSD%20-%20case%20v5%20HiHiRes.png)
-*Custom 3D-printed case for Raspberry Pi 5 + 2.5" SATA SSD*
-
-## 🔧 Hardware Specifications
-
-- **Main Board**: Raspberry Pi 5 Model B
-- **RAM**: 8 GB
-- **Storage**: 256 GB SATA SSD (2.5")
-- **Storage Adapter**: USB to SATA adapter
-- **Zigbee Coordinator**: Sonoff Zigbee 3.0 USB Dongle Plus
-- **USB Extension**: For optimal Zigbee signal (reduces interference from Pi)
-- **Enclosure**: Custom 3D-printed case (design included in `pictures/`)
-
-##  Related Projects
+### Related Projects
 
 - [smart-air-quality-sensor](https://github.com/mikoa001/smart-air-quality-sensor)
 
-## 🚀 Getting Started
-
-See the [Getting Started Guide](docs/getting-started.md) for detailed setup instructions.
-
-## 📚 Documentation
+## 📚 List of Content
 
 - [Getting Started Guide](docs/getting-started.md) - Step-by-step installation
 - [Hardware Setup Guide](docs/hardware-setup.md) - Detailed hardware documentation
