@@ -1,0 +1,56 @@
+# Example Zigbee Device List
+# This file documents the Zigbee devices in your network
+
+devices:
+  - ieee_address: "0x00158d0001a2b3c4"
+    type: "RTCGQ11LM"
+    friendly_name: "living_room_motion"
+    manufacturer: "Xiaomi"
+    model: "Aqara Motion Sensor"
+    description: "Motion sensor in living room"
+    location: "Living Room"
+    battery_powered: true
+    
+  - ieee_address: "0x00158d0001a2b3c5"
+    type: "WSDCGQ11LM"
+    friendly_name: "bedroom_temperature"
+    manufacturer: "Xiaomi"
+    model: "Aqara Temperature Sensor"
+    description: "Temperature and humidity sensor"
+    location: "Bedroom"
+    battery_powered: true
+    
+  - ieee_address: "0x00158d0001a2b3c6"
+    type: "MCCGQ11LM"
+    friendly_name: "front_door_sensor"
+    manufacturer: "Xiaomi"
+    model: "Aqara Door/Window Sensor"
+    description: "Main entrance door sensor"
+    location: "Front Door"
+    battery_powered: true
+    
+  - ieee_address: "0x00158d0001a2b3c7"
+    type: "LED1545G12"
+    friendly_name: "living_room_bulb_1"
+    manufacturer: "IKEA"
+    model: "TRADFRI LED bulb E27"
+    description: "Smart bulb in living room"
+    location: "Living Room"
+    battery_powered: false
+    
+  - ieee_address: "0x00158d0001a2b3c8"
+    type: "LED1545G12"
+    friendly_name: "living_room_bulb_2"
+    manufacturer: "IKEA"
+    model: "TRADFRI LED bulb E27"
+    description: "Smart bulb in living room"
+    location: "Living Room"
+    battery_powered: false
+
+# Coordinator info
+coordinator:
+  ieee_address: "0x00124b0024c6e589"
+  manufacturer: "ITEAD"
+  model: "Sonoff Zigbee 3.0 USB Dongle Plus"
+  description: "Zigbee coordinator connected via USB extension"
+  firmware_version: "6.7.10"

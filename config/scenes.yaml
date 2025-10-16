@@ -1,0 +1,86 @@
+# Example Scenes
+# This file contains example scene definitions for Home Assistant
+# Scenes define specific states for multiple entities
+
+# Bright and energetic scene for daytime
+- name: Daytime
+  entities:
+    light.living_room:
+      state: on
+      brightness: 255
+      color_temp: 250
+    light.kitchen:
+      state: on
+      brightness: 255
+      color_temp: 250
+    light.hallway:
+      state: on
+      brightness: 200
+
+# Relaxing evening scene
+- name: Evening Relax
+  entities:
+    light.living_room:
+      state: on
+      brightness: 150
+      color_temp: 400
+    light.kitchen:
+      state: on
+      brightness: 100
+      color_temp: 400
+    light.hallway:
+      state: on
+      brightness: 80
+
+# Romantic dinner scene
+- name: Romantic Dinner
+  entities:
+    light.dining_room:
+      state: on
+      brightness: 80
+      rgb_color: [255, 147, 41]
+    light.kitchen:
+      state: on
+      brightness: 50
+    light.living_room:
+      state: off
+
+# Reading scene
+- name: Reading
+  entities:
+    light.reading_lamp:
+      state: on
+      brightness: 255
+      color_temp: 300
+    light.living_room:
+      state: on
+      brightness: 100
+      color_temp: 350
+
+# Party mode scene
+- name: Party Mode
+  entities:
+    light.living_room:
+      state: on
+      brightness: 200
+      rgb_color: [255, 0, 255]
+      effect: colorloop
+    light.hallway:
+      state: on
+      brightness: 150
+      rgb_color: [0, 255, 255]
+      effect: colorloop
+
+# Night light scene
+- name: Night Light
+  entities:
+    light.hallway:
+      state: on
+      brightness: 20
+      rgb_color: [255, 100, 0]
+    light.bedroom:
+      state: off
+    light.living_room:
+      state: off
+    light.kitchen:
+      state: off

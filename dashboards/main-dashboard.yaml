@@ -1,0 +1,142 @@
+# Example Lovelace Dashboard Configuration
+# This is an example of a Home Assistant dashboard layout
+
+title: Home
+views:
+  # Main overview
+  - title: Home
+    path: home
+    icon: mdi:home
+    badges:
+      - entity: person.your_name
+      - entity: weather.forecast
+      - entity: sensor.processor_temperature
+    cards:
+      # Weather card
+      - type: weather-forecast
+        entity: weather.forecast
+        show_forecast: true
+        
+      # Quick controls
+      - type: entities
+        title: Quick Controls
+        entities:
+          - entity: light.living_room
+            name: Living Room
+          - entity: light.bedroom
+            name: Bedroom
+          - entity: light.kitchen
+            name: Kitchen
+          - entity: switch.tv
+            name: TV
+            
+      # Scenes
+      - type: horizontal-stack
+        cards:
+          - type: button
+            entity: scene.daytime
+            name: Daytime
+            icon: mdi:white-balance-sunny
+          - type: button
+            entity: scene.evening_relax
+            name: Evening
+            icon: mdi:weather-sunset
+          - type: button
+            entity: scene.night_light
+            name: Night
+            icon: mdi:weather-night
+            
+      # Climate
+      - type: thermostat
+        entity: climate.living_room
+        
+  # Lights view
+  - title: Lights
+    path: lights
+    icon: mdi:lightbulb
+    cards:
+      - type: light
+        entity: light.living_room
+        name: Living Room
+        
+      - type: light
+        entity: light.bedroom
+        name: Bedroom
+        
+      - type: light
+        entity: light.kitchen
+        name: Kitchen
+        
+      - type: entities
+        title: All Lights
+        entities:
+          - light.living_room
+          - light.bedroom
+          - light.kitchen
+          - light.hallway
+          - light.bathroom
+          
+  # Sensors view
+  - title: Sensors
+    path: sensors
+    icon: mdi:gauge
+    cards:
+      # Temperature sensors
+      - type: entities
+        title: Temperature
+        entities:
+          - entity: sensor.living_room_temperature
+            name: Living Room
+          - entity: sensor.bedroom_temperature
+            name: Bedroom
+          - entity: sensor.outdoor_temperature
+            name: Outdoor
+            
+      # Motion sensors
+      - type: entities
+        title: Motion Sensors
+        entities:
+          - binary_sensor.motion_sensor_hallway
+          - binary_sensor.motion_sensor_living_room
+          - binary_sensor.motion_sensor_bedroom
+          
+      # Door/Window sensors
+      - type: entities
+        title: Door & Window Sensors
+        entities:
+          - binary_sensor.front_door
+          - binary_sensor.back_door
+          - binary_sensor.bedroom_window
+          
+  # System monitoring
+  - title: System
+    path: system
+    icon: mdi:raspberry-pi
+    cards:
+      - type: entities
+        title: Raspberry Pi Status
+        entities:
+          - entity: sensor.processor_use
+            name: CPU Usage
+          - entity: sensor.processor_temperature
+            name: CPU Temperature
+          - entity: sensor.memory_use_percent
+            name: Memory Usage
+          - entity: sensor.disk_use_percent
+            name: Disk Usage
+          - entity: sensor.last_boot
+            name: Last Boot
+            
+      - type: history-graph
+        title: System Performance
+        entities:
+          - sensor.processor_use
+          - sensor.processor_temperature
+          - sensor.memory_use_percent
+        hours_to_show: 24
+        
+      - type: entities
+        title: Zigbee Network
+        entities:
+          - binary_sensor.zigbee2mqtt_bridge_connection
+          - sensor.zigbee2mqtt_bridge_state

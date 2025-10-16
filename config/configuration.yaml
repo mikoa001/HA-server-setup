@@ -1,0 +1,91 @@
+# Home Assistant Main Configuration
+# This is an example configuration file for Home Assistant
+# Customize it according to your needs
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Oslo
+  # Customization file
+  customize: !include customize.yaml
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+    language: 'en'
+
+# Example automation and script imports
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+# Zigbee2MQTT integration (if using MQTT)
+mqtt:
+  sensor:
+    - name: "Zigbee2MQTT Bridge State"
+      state_topic: "zigbee2mqtt/bridge/state"
+  binary_sensor:
+    - name: "Zigbee2MQTT Bridge Connection"
+      state_topic: "zigbee2mqtt/bridge/state"
+      payload_on: "online"
+      payload_off: "offline"
+
+# Example: Weather integration
+weather:
+  - platform: met
+    name: Weather Forecast
+
+# Example: Energy monitoring
+sensor:
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      
+  # System monitoring
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: processor_use
+      - type: processor_temperature
+      - type: last_boot
+
+# Example: Recorder configuration for database optimization
+recorder:
+  db_url: !secret db_url
+  purge_keep_days: 7
+  commit_interval: 30
+  exclude:
+    domains:
+      - automation
+      - updater
+    entity_globs:
+      - sensor.weather_*
+    entities:
+      - sun.sun
+
+# Example: History settings
+history:
+  exclude:
+    domains:
+      - automation
+      - updater
+
+# Example: Logbook
+logbook:
+  exclude:
+    domains:
+      - automation
